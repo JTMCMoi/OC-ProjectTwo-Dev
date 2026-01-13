@@ -1,0 +1,17 @@
+<div>
+    @if (title) {
+        <div class="center">
+            <div>{{ title }}</div>
+        </div>
+    }
+    @if (headers.length) {
+        <div class="split">
+            @for ( item of headers; track item.key) {
+                <div>
+                    <p>{{ item.key }}</p>
+                    <p>{{ item.value }}</p>
+                </div>
+            }
+        </div>
+    }
+</div>
