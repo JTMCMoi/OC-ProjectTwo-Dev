@@ -84,7 +84,7 @@ Le `DataService` retournera les données via des `interface` définies dans le d
         - medals-chart.component.ts
 - /src/app/models/
     - olympic.ts
-    -participation.ts
+    - participation.ts
 - /src/app/pages/
     - country/
         - country.component.html
@@ -98,6 +98,9 @@ Le `DataService` retournera les données via des `interface` définies dans le d
         - not-found.component.html
         - not-found.component.scss
         - not-found.component.ts
+- /src/app/services
+    - data/
+        - data.service.ts
 
 Note :
 Les fichiers non pertinants au regard de la nouvelle architecture, comme les `*.spec.ts`,
