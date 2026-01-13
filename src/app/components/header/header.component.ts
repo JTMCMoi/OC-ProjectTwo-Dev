@@ -8,6 +8,6 @@ import { Component,Input } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Input() title: string = "";
+  @Input() title?: string = "";
   @Input() headers: {key: string; value: number}[] = [];
 }
