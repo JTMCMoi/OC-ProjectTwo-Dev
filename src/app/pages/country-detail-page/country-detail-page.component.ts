@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import Chart from 'chart.js/auto';
+import {Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../services/data/data.service';
 import { Olympic } from 'src/app/models/olympic';
 import { Participation } from 'src/app/models/participation';
@@ -17,15 +16,23 @@ export class CountryDetailPageComponent implements OnInit {
   public years: number[] = [];
   public medals: string[] = [];
 
-  constructor(private route: ActivatedRoute, public dataService: DataService) {}
+  constructor(private router: Router, private route: ActivatedRoute, public dataService: DataService) {}
 
   ngOnInit() {
     let countryName: string | null = null
-    countryName = this.route.snapshot.paramMap.get('countryName');
+    countryName = this.route.snapshot.paramMap.get('id');
+    if ( !countryName )
+    {
+      this.router.navigate(['/not-found']);
+    }
     this.dataService.getOlympics().subscribe(
       (data) => {
         if (data && data.length > 0) {
           const selectedCountry = data.find((i: Olympic) => i.country === countryName);
+          if ( !selectedCountry )
+          {
+            this.router.navigate(['/not-found']);
+          }
           this.titlePage = selectedCountry?.country;
           const participations = selectedCountry?.participations.map((i: Participation) => i);
           this.headers.push({key: 'Number of entries',
