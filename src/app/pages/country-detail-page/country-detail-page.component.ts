@@ -6,7 +6,7 @@ import { Olympic } from 'src/app/models/olympic';
 import { Participation } from 'src/app/models/participation';
 
 @Component({
-  selector: 'app-country',
+  selector: 'app-country-detail-page',
   templateUrl: './country-detail-page.component.html',
   styleUrls: ['./country-detail-page.component.scss']
 })
