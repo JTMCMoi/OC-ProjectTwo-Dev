@@ -7,10 +7,10 @@ import { Participation } from 'src/app/models/participation';
 
 @Component({
   selector: 'app-country',
-  templateUrl: './country.component.html',
-  styleUrls: ['./country.component.scss']
+  templateUrl: './country-detail-page.component.html',
+  styleUrls: ['./country-detail-page.component.scss']
 })
-export class CountryComponent implements OnInit {
+export class CountryDetailPageComponent implements OnInit {
   public titlePage?: string = '';
   public headers: {key: string; value: number}[] = [];
   public error!: string;
