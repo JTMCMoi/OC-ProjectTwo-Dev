@@ -6,11 +6,11 @@ import { Olympic } from 'src/app/models/olympic';
 import { Participation } from 'src/app/models/participation';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-dashboard-page',
+  templateUrl: './dashboard-page.component.html',
+  styleUrls: ['./dashboard-page.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class DashboardPageComponent implements OnInit {
   public titlePage: string = "Medals per Country";
   public headers: {key: string; value: number}[] = [];
   public error!:string;

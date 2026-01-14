@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CountryDetailPageComponent } from "./pages/country-detail-page/country-detail-page.component";
 import { HeaderComponent } from './components/header/header.component';
@@ -11,7 +11,7 @@ import { MedalsChartComponent } from './components/medals-chart/medals-chart.com
 import { CountryChartComponent } from './components/country-chart/country-chart.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, CountryDetailPageComponent],
+  declarations: [AppComponent, DashboardPageComponent, NotFoundComponent, CountryDetailPageComponent],
   imports: [BrowserModule, AppRoutingModule, HeaderComponent, MedalsChartComponent, CountryChartComponent],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
