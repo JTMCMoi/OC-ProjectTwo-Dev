@@ -17,7 +17,7 @@ export class DashboardPageComponent implements OnInit {
   public countriesNameList: string[] = [];
   public countriesMedalsCount!: number[];
 
-  constructor(private router: Router, private dataService: DataService) { }
+  constructor(private router: Router, public dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getOlympics().subscribe(

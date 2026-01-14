@@ -17,7 +17,7 @@ export class CountryDetailPageComponent implements OnInit {
   public years: number[] = [];
   public medals: string[] = [];
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private route: ActivatedRoute, public dataService: DataService) {}
 
   ngOnInit() {
     let countryName: string | null = null

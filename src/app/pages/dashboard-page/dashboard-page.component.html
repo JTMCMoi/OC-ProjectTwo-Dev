@@ -1,6 +1,17 @@
 <h2>Olympic games app</h2>
 <hr/>
-<div>
-  <app-header [title]="titlePage" [headers]="headers" />
-  <app-medals-chart [countries]="countriesNameList" [medals]="countriesMedalsCount"/>
-</div>
+
+@if ( dataService.state$ | async; as state) {
+  @if (state === 'loading') {
+    <app-modal-box message="Data loading..." />
+  } @else if (state === 'empty') {
+    <app-modal-box message="No data found" />
+  } @else if (state === 'error') {
+    <app-modal-box message="Error on data loading" [back]="true" />
+  } @else {
+    <div>
+      <app-header [title]="titlePage" [headers]="headers" />
+      <app-medals-chart [countries]="countriesNameList" [medals]="countriesMedalsCount"/>
+    </div>
+  }
+}

@@ -1,12 +1,22 @@
-<div>
-  <app-header [title]="titlePage" [headers]="headers" />
-  <div class="chart-container wrapper-container">
-    <div class="container">
-      <app-country-chart [years]="years" [medals]="medals"/>
-      <h2>Date</h2>
+@if ( dataService.state$ | async; as state) {
+    @if (state === 'loading') {
+    <app-modal-box message="Data loading..." />
+  } @else if (state === 'empty') {
+    <app-modal-box message="No data found" />
+  } @else if (state === 'error') {
+    <app-modal-box message="Error on data loading" [back]="true" />
+  } @else {
+    <div>
+      <app-header [title]="titlePage" [headers]="headers" />
+      <div class="chart-container wrapper-container">
+        <div class="container">
+          <app-country-chart [years]="years" [medals]="medals"/>
+          <h2>Date</h2>
+        </div>
+      </div>
+      <div class="center">
+      <a routerLink="">Go back</a>
+      </div>
     </div>
-  </div>
-  <div class="center">
-    <a routerLink="">Go back</a>
-  </div>
-</div>
+  }
+}
