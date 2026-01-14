@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { CountryDetailPageComponent } from "./pages/country-detail-page/country-detail-page.component";
 
 const routes: Routes = [
@@ -16,11 +16,11 @@ const routes: Routes = [
 
   {
     path : 'not-found',
-    component : NotFoundComponent
+    component : NotFoundPageComponent
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    component: NotFoundPageComponent,
   },
 ];
 
