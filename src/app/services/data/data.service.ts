@@ -19,30 +19,25 @@ export class DataService {
     if ( !this.olympics$ )
     {
       this.stateSubject.next('loading');
-      console.log('data: loading');
 
       this.olympics$ = this.http.get<Olympic[]>(this.url).pipe(
         delay(1500),
         tap(data => {
           if (data.length === 0) {
             this.stateSubject.next('empty');
-            console.log('data: empty');
           } else {
             this.stateSubject.next('ready');
-            console.log('data: ready');
           }
         }),
         mergeMap(data => {
           if (data.length === 0) {
             this.stateSubject.next('empty');
-            console.log('data: empty');
             return throwError(() => new Error('Erreur on getting datas (empty)'));
           }
           return of(data);
         }),
         catchError((r:HttpErrorResponse) => {
           this.stateSubject.next('error');
-          console.log('data: error');
           return throwError(() => new Error(`Erreur on getting datas (${r.message})`));
         }),
         shareReplay(1)
